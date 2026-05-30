@@ -5,8 +5,8 @@ import {
 
 export const searchPlaces = async (req, res) => {
   try {
-    const { query } = req.query;
-    const places = await searchPlacesService(query);
+    const { query,userLat,userLng } = req.query;
+    const places = await searchPlacesService(query,Number(userLat),Number(userLng));
 
     res.status(200).json({
       success: true,
